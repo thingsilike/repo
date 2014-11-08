@@ -3,7 +3,7 @@ myApp.factory('Data', function ($http) {
 
     $http.get('/api/Lists').success(function (dataReturned) {
 
-        alert(dataReturned);
+        alert(dataReturned.length + ' lists loaded.');
 
     });
 
