@@ -9,16 +9,22 @@
 <body>
     <div ng-controller="HomeController">
 
-        {{data.message}}
-
         <input type="text" ng-model="sometext" />
  
         Hello {{ sometext }}
+
+        <div>
+        Lists:
+        </div>
+        <div ng-repeat="list in lists">
+            {{ list.Id }} {{ list.Name }} 
+        </div>
 
     </div>
 
     <div ng-controller="ClockController">
       <h5>{{ clock }}</h5>
     </div>
+
 </body>
 </html>

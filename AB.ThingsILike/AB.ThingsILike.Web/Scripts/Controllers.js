@@ -1,8 +1,13 @@
 ﻿var myApp = angular.module('myApp', []);
 
-myApp.controller('HomeController', function ($scope, Data) {
+myApp.controller('HomeController', function ($scope, $http) {
 
-    $scope.data = Data;
+    $http.get('/api/Lists').success(function (dataReturned) {
+        $scope.lists = dataReturned;
+    });
+
+    // Initial values:
+    $scope.sometext = 'guest';
 
 });
 
