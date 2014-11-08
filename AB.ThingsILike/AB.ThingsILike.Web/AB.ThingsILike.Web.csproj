@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ListsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -116,6 +117,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Controllers.js" />
+    <Content Include="Scripts\Services.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -134,6 +136,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AB.ThingsILike.BO\AB.ThingsILike.BO.csproj">
+      <Project>{cf287b68-6dda-49e0-ac63-ec06f624401f}</Project>
+      <Name>AB.ThingsILike.BO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AB.ThingsILike.Core\AB.ThingsILike.Core.csproj">
+      <Project>{3ca01ca4-8088-4cf1-82ad-9c125fdd1c14}</Project>
+      <Name>AB.ThingsILike.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

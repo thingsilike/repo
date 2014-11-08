@@ -1,8 +1,7 @@
-﻿
-var HomeController = function ($scope) {
-    $scope.data =
-        {
-            message: "Hello from angular controller",
-            sometext: "Hello"
-        };
+﻿var myApp = angular.module('myApp', []);
+
+var HomeController = function ($scope, Data) {
+
+    $scope.data = Data;
+
 };

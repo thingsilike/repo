@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AB.ThingsILike.Web", "AB.ThingsILike.Web\AB.ThingsILike.Web.csproj", "{6452CCB6-8E9C-4F89-A562-16A050E7DD7B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AB.ThingsILike.BO", "AB.ThingsILike.BO\AB.ThingsILike.BO.csproj", "{CF287B68-6DDA-49E0-AC63-EC06F624401F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AB.ThingsILike.Core", "AB.ThingsILike.Core\AB.ThingsILike.Core.csproj", "{3CA01CA4-8088-4CF1-82AD-9C125FDD1C14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{6452CCB6-8E9C-4F89-A562-16A050E7DD7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6452CCB6-8E9C-4F89-A562-16A050E7DD7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6452CCB6-8E9C-4F89-A562-16A050E7DD7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF287B68-6DDA-49E0-AC63-EC06F624401F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF287B68-6DDA-49E0-AC63-EC06F624401F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF287B68-6DDA-49E0-AC63-EC06F624401F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF287B68-6DDA-49E0-AC63-EC06F624401F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CA01CA4-8088-4CF1-82AD-9C125FDD1C14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CA01CA4-8088-4CF1-82AD-9C125FDD1C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CA01CA4-8088-4CF1-82AD-9C125FDD1C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CA01CA4-8088-4CF1-82AD-9C125FDD1C14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

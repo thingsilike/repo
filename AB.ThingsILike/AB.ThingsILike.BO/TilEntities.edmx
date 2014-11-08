@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ThingsILikeDevModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ThingsILikeDevModelStoreContainer">
+          <EntitySet Name="ListItems" EntityType="ThingsILikeDevModel.Store.ListItems" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Lists" EntityType="ThingsILikeDevModel.Store.Lists" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="ThingsILikeDevModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ListItems_Lists" Association="ThingsILikeDevModel.Store.FK_ListItems_Lists">
+            <End Role="Lists" EntitySet="Lists" />
+            <End Role="ListItems" EntitySet="ListItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lists_Users" Association="ThingsILikeDevModel.Store.FK_Lists_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Lists" EntitySet="Lists" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ListItems">
+          <Key>
+            <PropertyRef Name="li_id" />
+          </Key>
+          <Property Name="li_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="li_l_id" Type="int" Nullable="false" />
+          <Property Name="li_name" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="li_order" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lists">
+          <Key>
+            <PropertyRef Name="l_id" />
+          </Key>
+          <Property Name="l_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="l_user_id" Type="int" Nullable="false" />
+          <Property Name="l_name" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="u_id" />
+          </Key>
+          <Property Name="u_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="u_username" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_ListItems_Lists">
+          <End Role="Lists" Type="ThingsILikeDevModel.Store.Lists" Multiplicity="1" />
+          <End Role="ListItems" Type="ThingsILikeDevModel.Store.ListItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lists">
+              <PropertyRef Name="l_id" />
+            </Principal>
+            <Dependent Role="ListItems">
+              <PropertyRef Name="li_l_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lists_Users">
+          <End Role="Users" Type="ThingsILikeDevModel.Store.Users" Multiplicity="1" />
+          <End Role="Lists" Type="ThingsILikeDevModel.Store.Lists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="Lists">
+              <PropertyRef Name="l_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ThingsILikeDevModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ThingsILikeDevEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="ListItems" EntityType="ThingsILikeDevModel.ListItem" />
+          <EntitySet Name="Lists" EntityType="ThingsILikeDevModel.List" />
+          <EntitySet Name="Users" EntityType="ThingsILikeDevModel.User" />
+          <AssociationSet Name="FK_ListItems_Lists" Association="ThingsILikeDevModel.FK_ListItems_Lists">
+            <End Role="Lists" EntitySet="Lists" />
+            <End Role="ListItems" EntitySet="ListItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lists_Users" Association="ThingsILikeDevModel.FK_Lists_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Lists" EntitySet="Lists" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ListItem">
+          <Key>
+            <PropertyRef Name="li_id" />
+          </Key>
+          <Property Name="li_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="li_l_id" Type="Int32" Nullable="false" />
+          <Property Name="li_name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="li_order" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="List" Relationship="ThingsILikeDevModel.FK_ListItems_Lists" FromRole="ListItems" ToRole="Lists" />
+        </EntityType>
+        <EntityType Name="List">
+          <Key>
+            <PropertyRef Name="l_id" />
+          </Key>
+          <Property Name="l_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="l_user_id" Type="Int32" Nullable="false" />
+          <Property Name="l_name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ListItems" Relationship="ThingsILikeDevModel.FK_ListItems_Lists" FromRole="Lists" ToRole="ListItems" />
+          <NavigationProperty Name="User" Relationship="ThingsILikeDevModel.FK_Lists_Users" FromRole="Lists" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="u_id" />
+          </Key>
+          <Property Name="u_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="u_username" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Lists" Relationship="ThingsILikeDevModel.FK_Lists_Users" FromRole="Users" ToRole="Lists" />
+        </EntityType>
+        <Association Name="FK_ListItems_Lists">
+          <End Role="Lists" Type="ThingsILikeDevModel.List" Multiplicity="1" />
+          <End Role="ListItems" Type="ThingsILikeDevModel.ListItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lists">
+              <PropertyRef Name="l_id" />
+            </Principal>
+            <Dependent Role="ListItems">
+              <PropertyRef Name="li_l_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lists_Users">
+          <End Role="Users" Type="ThingsILikeDevModel.User" Multiplicity="1" />
+          <End Role="Lists" Type="ThingsILikeDevModel.List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="Lists">
+              <PropertyRef Name="l_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ThingsILikeDevModelStoreContainer" CdmEntityContainer="ThingsILikeDevEntities">
+          <EntitySetMapping Name="ListItems">
+            <EntityTypeMapping TypeName="ThingsILikeDevModel.ListItem">
+              <MappingFragment StoreEntitySet="ListItems">
+                <ScalarProperty Name="li_id" ColumnName="li_id" />
+                <ScalarProperty Name="li_l_id" ColumnName="li_l_id" />
+                <ScalarProperty Name="li_name" ColumnName="li_name" />
+                <ScalarProperty Name="li_order" ColumnName="li_order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lists">
+            <EntityTypeMapping TypeName="ThingsILikeDevModel.List">
+              <MappingFragment StoreEntitySet="Lists">
+                <ScalarProperty Name="l_id" ColumnName="l_id" />
+                <ScalarProperty Name="l_user_id" ColumnName="l_user_id" />
+                <ScalarProperty Name="l_name" ColumnName="l_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ThingsILikeDevModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="u_id" ColumnName="u_id" />
+                <ScalarProperty Name="u_username" ColumnName="u_username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
