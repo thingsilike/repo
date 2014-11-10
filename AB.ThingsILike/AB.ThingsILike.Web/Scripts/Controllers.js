@@ -6,19 +6,4 @@ myApp.controller('HomeController', function ($scope, $http) {
         $scope.lists = dataReturned;
     });
 
-    // Initial values:
-    $scope.sometext = 'guest';
-
-});
-
-myApp.controller('ClockController', function ($scope) {
-
-    var updateClock = function () {
-        $scope.clock = new Date();
-    };
-
-    var timer = setInterval(function () {
-        $scope.$apply(updateClock);
-    }, 1000);
-    updateClock();
 });
