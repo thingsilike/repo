@@ -1,0 +1,16 @@
+﻿<h2>My Lists</h2>
+
+<table class="table table-striped table-hover ">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>List Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="list in lists">
+        <td>{{ list.Id }}</td>
+        <td>{{ list.Name }}</td>
+    </tr>
+    </tbody>
+</table>

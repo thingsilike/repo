@@ -5,6 +5,7 @@
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Scripts/App.js"></script>
     <script type="text/javascript" src="/Scripts/Controllers.js"></script>
     <script type="text/javascript" src="/Scripts/Services.js"></script>
     
@@ -12,41 +13,26 @@
 </head>
 <body>
     <div class="navbar navbar-inverse">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Things I Like</a>
-      </div>
-      <div class="navbar-collapse collapse navbar-inverse-collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">My Lists</a></li>
-          <li><a href="#">About This Site</a></li>
-        </ul>
-      </div>
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Things I Like</a>
+          </div>
+          <div class="navbar-collapse collapse navbar-inverse-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#/Lists">My Lists</a></li>
+              <li><a href="#/About">About This Site</a></li>
+            </ul>
+          </div>
+        </div>
     </div>
     
-    <div ng-controller="HomeController">
-
-        <h1>My Lists</h1>
-
-        <table class="table table-striped table-hover ">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>List Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="list in lists">
-              <td>{{ list.Id }}</td>
-              <td>{{ list.Name }}</td>
-            </tr>
-          </tbody>
-        </table>
-
+    <div class="container">
+        <ng-view></ng-view>
     </div>
 
 </body>

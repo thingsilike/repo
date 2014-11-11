@@ -116,6 +116,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\AngularViews\About.html" />
+    <Content Include="Scripts\AngularViews\Home.html" />
+    <Content Include="Scripts\AngularViews\Lists.html" />
+    <Content Include="Scripts\App.js" />
     <Content Include="Scripts\Controllers.js" />
     <Content Include="Scripts\Services.js" />
     <Content Include="Styles\bootstrap.min.css" />
